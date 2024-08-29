@@ -1,0 +1,80 @@
+0- array associatif pour contenir les données de la démo
+
+   Les tableaux
+   https://www.php.net/manual/fr/language.types.array.php
+
+
+1- Échappement de l'appostrophe car la string est entourée d'appostrophes
+   Les chaînes à guillement simple n'évaluent pas les variables
+
+   Les chaînes de caractères
+   https://www.php.net/manual/fr/language.types.string.php
+
+
+2- is_int ou autres fonctions spécifiques de validation de type
+   Conversion explicite de type : type casting
+   Ici la conversion ne conserve ce qui peut être un int
+   La documentation décrit tous les cas de conversion
+
+   Fonctions de gestion des variables
+   https://www.php.net/manual/fr/ref.var.php
+
+   Transtypage/Juggling et Conversion/Casting
+   https://www.php.net/manual/fr/language.types.type-juggling.php
+   https://www.php.net/manual/fr/language.types.type-juggling.php#language.types.typecasting
+
+
+3- Isoler une variable avec les accolades pour préciser son nom (pas obligatoire si c'est une variable et non un tableau)
+   Voir documentation sur les string
+
+
+4- Opérateur combiné d'assignation '.=' pour ajouter à la chaîne existante
+   Fonction de recherche de chaîne strpos() case sensitive.  stripos() est case insensitive
+
+   Les opérateurs d'affectation
+   https://www.php.net/manual/fr/language.operators.assignment.php
+
+   strpos
+   https://www.php.net/manual/fr/function.strpos.php   
+
+
+5- Nous construisons un objet DateTime grâce à son format d'entrée
+
+   La classe DateTime
+   https://www.php.net/manual/fr/class.datetime.php
+
+   DateTime::createFromFormat
+   https://www.php.net/manual/fr/datetime.createfromformat.php
+
+
+6- Transtypage string/int sera fait pour évaluer le numéro de séquence
+   On valide que la valeur ne dépasse pas la limite du type int grâce aux constantes prédéfinies
+
+   Constantes pré-définies 
+   https://www.php.net/manual/fr/reserved.constants.php
+
+
+6.1- Utiliser la fonction extract($items) au lieu des assignations manuelles
+   extract($items);
+
+
+7- On valide si la variable est null au moment de l'assignation
+   On s'assure que c'est un "int" ou "bool"
+   Le 1er cas, pas de donnée, le "xxxxxxxx" devient 0
+   Le 2e cas le sku devient un "int" et "-aaa" est tronqué
+
+   Le 1er bool donne "true" car la chaîne n'est pas vide
+   Le 2e bool donne true car on a true
+   Le 3e bool donne true car 1=true 
+
+   L'opérateur Null coalescent / null coalescing operator
+   https://www.php.net/manual/fr/migration70.new-features.php
+
+
+8- Heredoc et Nowdoc permettent de mieux lire des chaînes complexe
+   La fin Heredoc et Nowdoc ne doit pas dépasser le contenu
+   Voir documentation sur les string
+   Les accolades aident à mieux lire les variables (depuis v8.2)
+
+9- Fichier demo2-1.php : Loop au-travers de tous les items du tableau et créer le code html via un Heredoc
+   fonctionne peut importe le nombre d'items dans le tableau
